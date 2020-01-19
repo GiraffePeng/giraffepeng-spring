@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.peng</groupId>
+    <artifactId>giraffepeng-spring</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>spring-demo</artifactId>
+  <packaging>war</packaging>
+  
+  <properties>
+    <servlet.api.version>2.4</servlet.api.version>
+  </properties>
+  
+  <dependencies>
+    <!-- requied start -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>${servlet.api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- requied end -->
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+        <source>1.6</source>
+        <target>1.6</target>
+        <encoding>UTF-8</encoding>
+        <compilerArguments>
+          <verbose />
+          <bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
+        </compilerArguments>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+              <outputDirectory>${basedir}/target/classes</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/resources</directory>
+                  <includes>
+                    <include>**/*.*</include>
+                  </includes>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+             </configuration>
+             </execution>
+           </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
